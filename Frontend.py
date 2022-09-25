@@ -63,7 +63,7 @@ def main():
         height = st.text_input('Height (in CM) ')
         weight = st.text_input('Weight (in Kg) ')
         bmi = float((float(weight) / (float(height) * float(height)))*10000)
-        st.info(f"Your BMI: {bmi}")
+        st.info(f"Your BMI: {round(bmi, 0)}")
         if height < 0 or height > 2:
             st.warning("Enter a Valid height",icon="❌")
         elif weight < 0 or weight > 600:
