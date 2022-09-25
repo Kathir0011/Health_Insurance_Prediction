@@ -44,6 +44,8 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
+        if age < 0:
+            st.warning("Enter a Valid Age",icon="❌")
     except:
         pass
 
@@ -61,6 +63,8 @@ def main():
         height = st.text_input('Height (in metres) ')
         weight = st.text_input('Weight (in Kg) ')
         bmi = float(weight) / (float(height) * float(height))
+        if bmi < 15:
+            st.warning("Enter a Valid BMI",icon="❌")
     except:
         pass
 
@@ -68,6 +72,8 @@ def main():
     children = None
     try:
         children = float(st.text_input('Number Of Children'))
+        if children < 0:
+            st.warning("Enter a Valid Number of Children",icon="❌")
     except:
         pass
 
