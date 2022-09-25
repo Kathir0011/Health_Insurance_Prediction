@@ -11,6 +11,7 @@ model = pickle.load(open('predictor.sav', 'rb'))
 
 # function to make prediction with our model
 def make_prediction(feature):
+    st.write("entered")
     prediction = model.predict(feature)
     st.write("entered")
     # convert and return the result
