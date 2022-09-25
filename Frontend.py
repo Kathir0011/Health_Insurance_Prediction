@@ -60,6 +60,7 @@ def main():
     # calculating the BMI with height and weight
     bmi = None
     try:
+        verify = True
         height = st.text_input('Height (in CM) ')
         temp_h = float(height)
         if temp_h < 0 or temp_h > 250:
@@ -68,11 +69,12 @@ def main():
         weight = st.text_input('Weight (in Kg) ')
         temp_w = float(weight)
         if temp_w < 0 or temp_w > 600:
+            verify = False
             st.warning("Enter a Valid weight",icon="❌")
       
         bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
         temp_b = bmi
-        if bmi < 13 or bmi > 200:
+        if (bmi < 13 or bmi > 200) and verify:
             st.warning(f"BMI is too Low.   BMI: {temp_b}",icon="❌")
         
     except:
