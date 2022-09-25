@@ -44,7 +44,7 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
-        if age < 0 or age > 150 or type(age) == type("string"):
+        if age < 0 or age > 150:
             st.warning("Enter a Valid Age",icon="❌")
     except:
         pass
@@ -63,11 +63,11 @@ def main():
         height = st.text_input('Height (in Metres) ')
         weight = st.text_input('Weight (in Kg) ')
         bmi = float(weight) / (float(height) * float(height))
-        if height < 0 or height > 2 or type(height) == type("string"):
+        if height < 0 or height > 2:
             st.warning("Enter a Valid height",icon="❌")
-        elif weight < 0 or weight > 600 or type(weight) == type("string"):
+        elif weight < 0 or weight > 600:
             st.warning("Enter a Valid weight",icon="❌")
-        elif bmi < 15 or bmi > 200 or type(bmi) == type("string"):
+        elif bmi < 15 or bmi > 200:
             st.warning("BMI is too Low",icon="❌")
     except:
         pass
@@ -76,7 +76,7 @@ def main():
     children = None
     try:
         children = float(st.text_input('Number Of Children'))
-        if children < 0 or children > 10 or type(children) == type("string"):
+        if children < 0 or children > 10:
             st.warning("Enter a Valid Number of Children",icon="❌")
     except:
         pass
@@ -84,9 +84,9 @@ def main():
     # getting input whether the person is a smoker or not
     inp_smoker = st.radio('Are you a Smoker ? ', ('Yes', 'No'))
     if inp_smoker == 'Yes':
-        smoker = 1
+        smoker = 1.0
     else:
-        smoker = 0
+        smoker = 0.0
 
     # getting input for region where the person lives
     inp_region = st.radio('Region (In US)', ('Southeast', 'Southwest', 'Northwest', 'Northeast'))
