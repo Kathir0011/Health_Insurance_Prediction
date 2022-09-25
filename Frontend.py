@@ -75,9 +75,9 @@ def main():
         bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
         temp_b = bmi
         if bmi < 13 and verify:
-            st.warning(f"BMI is too Low.   BMI: {temp_b}",icon="❌")
+            st.warning(f"BMI is too Low.   BMI: {round(temp_b, 0)}",icon="❌")
         elif bmi > 200 and verify:
-            st.warning(f"BMI is too High.   BMI: {temp_b}",icon="❌")
+            st.warning(f"BMI is too High.   BMI: {round(temp_b, 0)}",icon="❌")
         
     except:
         pass
