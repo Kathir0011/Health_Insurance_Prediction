@@ -80,7 +80,7 @@ def main():
         smoker = 0
 
     # getting input for region where the person lives
-    inp_region = st.radio('Region ', ('Southeast', 'Southwest', 'Northwest', 'Northeast'))
+    inp_region = st.radio('Region (In US)', ('Southeast', 'Southwest', 'Northwest', 'Northeast'))
     if inp_region == 'Southeast':
         region = 3.0
     elif inp_region == 'Southwest':
@@ -100,10 +100,11 @@ def main():
             if validated:
                 processed_data = convert_into_dataframe([age, gender, bmi, children, smoker, region])
                 result = make_prediction(processed_data)
-                st.success(f"Predicted Cost:  ${result:.0f}")
+                st.success(f"Predicted Cost: ${result:.0f}")
+
             else:
                 st.error('Invalid Input. Kindly Reload the Webpage and try again!!!', icon="⚠️")
-         
+
         st.info(
                 "Premiums are determined by Health Insurance Companies "
                 "private statistical procedures and complicated models, "
@@ -119,3 +120,4 @@ def main():
 if __name__ == '__main__':
     # calling main function
     main()
+
