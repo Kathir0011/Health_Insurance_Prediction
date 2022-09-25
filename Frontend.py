@@ -26,6 +26,8 @@ def convert_into_dataframe(data):
 # check the formats of the input data
 def check_data(data):
     # checking age, bmi, children
+    if data[0] == 0.0:
+        return False
     for i in data:
         check_1 = 0.0
         if type(i) != type(check_1):
@@ -44,7 +46,7 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
-        if age <= 0 or age > 150:
+        if age < 0 or age > 150:
             st.warning("Enter a Valid Age",icon="❌")
     except:
         pass
