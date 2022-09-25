@@ -7,7 +7,7 @@ import streamlit as st
 
 # loading the saved model
 model = pickle.load(open('predictor.sav', 'rb'))
-
+st.write(model.get_params())
 
 # function to make prediction with our model
 def make_prediction(feature):
