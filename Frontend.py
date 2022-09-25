@@ -115,6 +115,7 @@ def main():
                 if btn:
                     # This would empty everything inside the container
                     placeholder.empty()
+                model = pickle.load(open('predictor.sav', 'rb'))
 
     except:
         pass
