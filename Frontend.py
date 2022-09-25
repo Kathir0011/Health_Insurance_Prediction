@@ -100,9 +100,18 @@ def main():
             if validated:
                 processed_data = convert_into_dataframe([age, gender, bmi, children, smoker, region])
                 result = make_prediction(processed_data)
-                st.success(f"💰:  ${result:.0f}")
+                st.success(f"Predicted Cost:  ${result:.0f}")
             else:
                 st.error('Invalid Input. Kindly Reload the Webpage and try again!!!', icon="⚠️")
+         
+        st.info(
+                "Premiums are determined by Health Insurance Companies "
+                "private statistical procedures and complicated models, "
+                "which are kept concealed from the public. "
+                "The goal of this predictor is to see if machine learning algorithms "
+                "can be used to anticipate the pricing "
+                "of yearly health insurance premiums on the basis of contract parameters and a person's "
+                "characteristics.", icon="ℹ️")
     except:
         pass
 
