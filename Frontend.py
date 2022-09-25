@@ -60,9 +60,9 @@ def main():
     # calculating the BMI with height and weight
     bmi = None
     try:
-        height = st.text_input('Height (in CM) ')
-        weight = st.text_input('Weight (in Kg) ')
-        bmi = float((float(weight) / (float(height) * float(height)))*10000)
+        height = float(st.text_input('Height (in CM) '))
+        weight = float(st.text_input('Weight (in Kg) '))
+        bmi = float((weight / height * height)*10000)
         
         if height < 0 or height > 250:
             st.warning("Enter a Valid height",icon="❌")
