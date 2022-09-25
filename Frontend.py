@@ -6,7 +6,7 @@ import streamlit as st
 
 
 # loading the saved model
-model = pickle.load(open('D:/Programs/ML/Prediction models/Health Insurance Cost Prediction V2/predictor.sav', 'rb'))
+model = pickle.load(open('predictor.sav', 'rb'))
 
 
 # function to make prediction with our model
