@@ -69,6 +69,8 @@ def main():
             st.warning("Enter a Valid weight",icon="❌")
         elif bmi < 15 or bmi > 200:
             st.warning("BMI is too Low",icon="❌")
+        else:
+            st.info("Your BMI: ", bmi)
     except:
         pass
 
