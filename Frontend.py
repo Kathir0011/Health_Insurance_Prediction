@@ -6,7 +6,7 @@ import streamlit as st
 import xgboost as xgb
 
 # loading the saved model
-model = xgb.Booster()
+model = xgb.XGBRFRegressor()
 model.load_model("predictor.json")
 
 # function to make prediction with our model
