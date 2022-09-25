@@ -116,6 +116,7 @@ def main():
                     # This would empty everything inside the container
                     placeholder.empty()
                 model = pickle.load(open('predictor.sav', 'rb'))
+                age, gender, bmi, children, smoker, region = None, None, None, None, None, None
 
     except:
         pass
