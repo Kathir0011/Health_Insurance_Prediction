@@ -98,6 +98,7 @@ def main():
             st.balloons()
             validated = check_data([age, bmi, children])
             if validated:
+                st.write("entered")
                 processed_data = convert_into_dataframe([age, gender, bmi, children, smoker, region])
                 result = make_prediction(processed_data)
                 st.write(result)
