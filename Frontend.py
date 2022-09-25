@@ -44,7 +44,7 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
-        if age < 0:
+        if age < 0 or age > 150:
             st.warning("Enter a Valid Age",icon="❌")
     except:
         pass
@@ -60,11 +60,15 @@ def main():
     # calculating the BMI with height and weight
     bmi = None
     try:
-        height = st.text_input('Height (in metres) ')
+        height = st.text_input('Height (in Metres) ')
         weight = st.text_input('Weight (in Kg) ')
         bmi = float(weight) / (float(height) * float(height))
-        if bmi < 15:
-            st.warning("Enter a Valid BMI",icon="❌")
+        if height < 0 or height > 2:
+            st.warning("Enter a Valid height",icon="❌")
+        elif weight < 0 or weight > 600:
+            st.warning("Enter a Valid weight",icon="❌")
+        elif bmi < 15 or bmi > 200:
+            st.warning("BMI is too Low",icon="❌")
     except:
         pass
 
