@@ -1,7 +1,6 @@
 # importing the required libraries
 import numpy as np
 import pandas as pd
-import pickle
 import streamlit as st
 import xgboost as xgb
 
