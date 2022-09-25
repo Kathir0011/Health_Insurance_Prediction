@@ -64,13 +64,15 @@ def main():
         weight = st.text_input('Weight (in Kg) ')
         bmi = float((float(weight) / (float(height) * float(height)))*10000)
         temp_bmi = bmi
-        st.info(f"Your BMI: {round(temp_bmi, 0)}")
-        if height < 0 or height > 2:
+        
+        if height < 0 or height > 250:
             st.warning("Enter a Valid height",icon="❌")
         elif weight < 0 or weight > 600:
             st.warning("Enter a Valid weight",icon="❌")
-        elif bmi < 15 or bmi > 200:
+        elif bmi < 13 or bmi > 200:
             st.warning("BMI is too Low",icon="❌")
+        
+        st.info(f"Your BMI: {round(temp_bmi, 0)}")
         
     except:
         pass
