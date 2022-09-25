@@ -44,7 +44,7 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
-        if age < 0 or age > 150:
+        if age < 18 or age > 150:
             st.warning("Enter a Valid Age",icon="❌")
     except:
         pass
@@ -63,12 +63,12 @@ def main():
         verify = True
         height = st.text_input('Height (in CM) ')
         temp_h = float(height)
-        if temp_h < 0 or temp_h > 250:
+        if temp_h < 50 or temp_h > 250:
             st.warning("Enter a Valid height",icon="❌")
        
         weight = st.text_input('Weight (in Kg) ')
         temp_w = float(weight)
-        if temp_w < 10 or temp_w > 600:
+        if temp_w < 15 or temp_w > 600:
             verify = False
             st.warning("Enter a Valid weight",icon="❌")
       
@@ -86,7 +86,7 @@ def main():
     children = None
     try:
         children = float(st.text_input('Number Of Children'))
-        if children < 0 or children > 10:
+        if children < 0 or children > 15:
             st.warning("Enter a Valid Number of Children",icon="❌")
     except:
         pass
