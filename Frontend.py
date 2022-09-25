@@ -100,6 +100,7 @@ def main():
             if validated:
                 processed_data = convert_into_dataframe([age, gender, bmi, children, smoker, region])
                 result = make_prediction(processed_data)
+                st.write(result)
                 st.success(f"Predicted Cost: ${result:.0f}")
 
             else:
