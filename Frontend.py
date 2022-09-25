@@ -3,10 +3,11 @@ import numpy as np
 import pandas as pd
 import pickle
 import streamlit as st
-
+import xgboost as xgb
 
 # loading the saved model
-model = pickle.load(open('predictor.sav', 'rb'))
+model = xgb.Booster()
+model.load_model("predictor.json")
 
 # function to make prediction with our model
 def make_prediction(feature):
