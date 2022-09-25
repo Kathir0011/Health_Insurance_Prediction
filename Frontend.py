@@ -99,9 +99,8 @@ def main():
             validated = check_data([age, bmi, children])
             if validated:
                 processed_data = convert_into_dataframe([age, gender, bmi, children, smoker, region])
-                arr = make_prediction(processed_data)
-                result = arr[0]
-                st.success(f"${result:.3f}")
+                result = make_prediction(processed_data)
+                st.success(f"💰:  ${result:.0f}")
             else:
                 st.error('Invalid Input. Kindly Reload the Webpage and try again!!!', icon="⚠️")
     except:
