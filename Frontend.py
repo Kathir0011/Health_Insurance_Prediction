@@ -102,7 +102,7 @@ def main():
                 arr = make_prediction(processed_data)
                 result = arr[0]
                 st.write(result)
-                st.success(f"$ {result:.3f}")
+                st.success(f"Predicted Cost: ${result:.3f}")
             else:
                 st.error('Invalid Input. Kindly Reload the Webpage and try again!!!', icon="⚠️")
     except:
