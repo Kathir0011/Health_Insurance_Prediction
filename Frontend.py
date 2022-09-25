@@ -68,7 +68,7 @@ def main():
        
         weight = st.text_input('Weight (in Kg) ')
         temp_w = float(weight)
-        if temp_w < 0 or temp_w > 600:
+        if temp_w < 10 or temp_w > 600:
             verify = False
             st.warning("Enter a Valid weight",icon="❌")
       
