@@ -12,6 +12,7 @@ model = pickle.load(open('predictor.sav', 'rb'))
 # function to make prediction with our model
 def make_prediction(feature):
     prediction = model.predict(feature)
+    st.write("entered")
     # convert and return the result
     return np.asarray(prediction)[0]
 
@@ -98,11 +99,8 @@ def main():
             st.balloons()
             validated = check_data([age, bmi, children])
             if validated:
-                st.write("entered")
                 processed_data = convert_into_dataframe([age, gender, bmi, children, smoker, region])
-                st.write("entered")
                 result = make_prediction(processed_data)
-                st.write("entered")
                 st.write(result)
                 st.success(f"Predicted Cost: ${result:.0f}")
 
