@@ -104,20 +104,7 @@ def main():
                 st.write(result)
                 st.success(f"$ {result:.3f}")
             else:
-                st.error('Enter a Valid Data', icon="⚠️")
-                # for webpage reloading
-                placeholder = st.empty()
-
-                with placeholder.container():
-                    btn = st.button("Reload")
-
-                # If btn is pressed or True
-                if btn:
-                    # This would empty everything inside the container
-                    placeholder.empty()
-                model = pickle.load(open('predictor.sav', 'rb'))
-                age, gender, bmi, children, smoker, region = None, None, None, None, None, None
-
+                st.error('Invalid Input. Kindly Reload the Webpage and try again!!!', icon="⚠️")
     except:
         pass
 
