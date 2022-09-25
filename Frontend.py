@@ -11,9 +11,7 @@ model = pickle.load(open('predictor.sav', 'rb'))
 
 # function to make prediction with our model
 def make_prediction(feature):
-    st.write("entered")
     prediction = model.predict(feature)
-    st.write("entered")
     # convert and return the result
     return np.asarray(prediction)[0]
 
@@ -114,7 +112,7 @@ def main():
                 "which are kept concealed from the public. "
                 "The goal of this predictor is to see if machine learning algorithms "
                 "can be used to anticipate the pricing "
-                "of yearly health insurance premiums on the basis of contract parameters and a person's "
+                "of yearly health insurance premiums on the basis of person's "
                 "characteristics.", icon="ℹ️")
     except:
         pass
