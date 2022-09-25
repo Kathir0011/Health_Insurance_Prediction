@@ -70,7 +70,7 @@ def main():
         elif bmi < 15 or bmi > 200:
             st.warning("BMI is too Low",icon="❌")
         else:
-            st.info("Your BMI: ", bmi)
+            st.success("Your BMI: ", bmi)
     except:
         pass
 
