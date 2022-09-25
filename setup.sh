@@ -1,13 +1,11 @@
+ines (8 sloc)  134 Bytes
+  
 mkdir -p ~/.streamlit/
-
-echo "\
-[general]\n\
-email = \"your-email@domain.com\"\n\
-" > ~/.streamlit/credentials.toml
 
 echo "\
 [server]\n\
 headless = true\n\
-enableCORS=false\n\
 port = $PORT\n\
+enableCORS = false\n\
+\n\
 " > ~/.streamlit/config.toml
