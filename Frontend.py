@@ -46,7 +46,7 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
-        if age < 18 or age > 64:
+        if (age < 18 or age > 64) and age != 0:
             st.warning("Enter a Valid Age",icon="❌")
     except:
         pass
