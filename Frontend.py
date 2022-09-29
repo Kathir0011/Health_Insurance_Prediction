@@ -18,7 +18,7 @@ def make_prediction(feature):
 # function to preprocess data
 def convert_into_dataframe(data):
     # turning into a dataframe
-    df = pd.DataFrame(data, ["age", "gender", "bmi", "children", "smoker", "region"]).T
+    df = pd.DataFrame(data, ["age", "bmi", "children", "smoker"]).T
     # returning the processed data
     return df
 
@@ -46,19 +46,13 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
-        check_num = 0.0
-        if age < 0 or age > 150 or type(age) != type(0.0):
+        if age < 0 or age > 150:
             st.warning("Enter a Valid Age",icon="❌")
     except:
         pass
 
     # getting gender from the user
-    inp_gender = st.radio("Gender", ('Male', 'Female'))
-    # converting the gender input into 0 or 1
-    if inp_gender == 'Female':
-        gender = 0.0
-    else:
-        gender = 1.0
+    inp_gender = st.radio("Gender", ('Male', 'Female'))   
 
     # calculating the BMI with height and weight
     bmi = None
@@ -103,14 +97,6 @@ def main():
 
     # getting input for region where the person lives
     inp_region = st.radio('Region (In US)', ('Southeast', 'Southwest', 'Northwest', 'Northeast'))
-    if inp_region == 'Southeast':
-        region = 3.0
-    elif inp_region == 'Southwest':
-        region = 4.0
-    elif inp_region == 'Northwest':
-        region = 2.0
-    else:
-        region = 1.0
 
     # showing the results
     try:
@@ -120,7 +106,7 @@ def main():
             st.balloons()
             validated = check_data([age, bmi, children])
             if validated:
-                processed_data = convert_into_dataframe([age, gender, bmi, children, smoker, region])
+                processed_data = convert_into_dataframe([age, bmi, children, smoker])
                 result = make_prediction(processed_data)
                 st.success(f"Predicted Cost: ${result:.0f}")
 
