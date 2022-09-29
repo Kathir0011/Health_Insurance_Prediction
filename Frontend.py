@@ -46,7 +46,8 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
-        if (age < 18 or age > 64) and age != 0:
+        check_num = 0.0
+        if age < 0 or age > 150 or type(age) != type(0.0):
             st.warning("Enter a Valid Age",icon="❌")
     except:
         pass
@@ -76,9 +77,9 @@ def main():
       
         bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
         temp_b = bmi
-        if bmi < 15 and verify:
+        if bmi < 13 and verify:
             st.warning(f"BMI is too Low.   BMI: {round(temp_b, 0)}",icon="❌")
-        elif bmi > 53 and verify:
+        elif bmi > 200 and verify:
             st.warning(f"BMI is too High.   BMI: {round(temp_b, 0)}",icon="❌")
         
     except:
