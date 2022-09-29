@@ -18,7 +18,7 @@ def make_prediction(feature):
 # function to preprocess data
 def convert_into_dataframe(data):
     # turning into a dataframe
-    df = pd.DataFrame(data, ["age", "bmi", "children", "smoker"]).T
+    df = pd.DataFrame(data, ["age", "sex", "bmi", "children", "smoker"]).T
     # returning the processed data
     return df
 
@@ -52,7 +52,11 @@ def main():
         pass
 
     # getting gender from the user
-    inp_gender = st.radio("Gender", ('Male', 'Female'))   
+    inp_gender = st.radio("Gender", ('Male', 'Female'))
+    if inp_gender == 'Male':
+        gender = 1.0
+    else:
+        gender = 0.0
 
     # calculating the BMI with height and weight
     bmi = None
@@ -106,7 +110,7 @@ def main():
             st.balloons()
             validated = check_data([age, bmi, children])
             if validated:
-                processed_data = convert_into_dataframe([age, bmi, children, smoker])
+                processed_data = convert_into_dataframe([age, gender, bmi, children, smoker])
                 result = make_prediction(processed_data)
                 st.success(f"Predicted Cost: ${result:.0f}")
 
