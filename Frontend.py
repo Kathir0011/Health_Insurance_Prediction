@@ -63,11 +63,11 @@ def main():
     try:
         verify = True
         height = st.text_input('Height (in CM) ')
+        weight = st.text_input('Weight (in Kg) ')
         temp_h = float(height)
         if temp_h < 50 or temp_h > 250:
             st.warning("Enter a Valid height",icon="❌")
        
-        weight = st.text_input('Weight (in Kg) ')
         temp_w = float(weight)
         if temp_w < 15 or temp_w > 600:
             verify = False
