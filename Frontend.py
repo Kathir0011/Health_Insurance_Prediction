@@ -18,7 +18,7 @@ def make_prediction(feature):
 # function to preprocess data
 def convert_into_dataframe(data):
     # turning into a dataframe
-    df = pd.DataFrame(data, ["age", "sex", "bmi", "children", "smoker"]).T
+    df = pd.DataFrame(data, ["age", "gender", "bmi", "children", "smoker", "region"]).T
     # returning the processed data
     return df
 
@@ -39,6 +39,17 @@ def check_data(data):
 
 # entry point for our webpage
 def main():
+    # sidebar
+    with st.sidebar:
+        st.title("About:")
+        st.markdown(
+        "- Predicting the cost of the Health Insurance Policy that should be applied by a Person, based on their Characteristics.\n"
+        "- Early Health Insurance Amount Prediction can help in better contemplation of the amount needed, where a person can ensure that the amount, he/she is going to opt is justified.\n"
+        "- Also, it can provide an idea about gaining extra benefits from the Health Insurance."
+        )
+        st.title("Other Projects:")
+        st.markdown("📰 [Fake News Detector](https://fake-news-detector-k19.streamlit.app/)")
+
     # setting the title
     st.title('US Health Insurance Predictor')
 
@@ -53,21 +64,22 @@ def main():
 
     # getting gender from the user
     inp_gender = st.radio("Gender", ('Male', 'Female'))
-    if inp_gender == 'Male':
-        gender = 1.0
-    else:
+    # converting the gender input into 0 or 1
+    if inp_gender == 'Female':
         gender = 0.0
+    else:
+        gender = 1.0
 
     # calculating the BMI with height and weight
     bmi = None
     try:
         verify = True
         height = st.text_input('Height (in CM) ')
-        weight = st.text_input('Weight (in Kg) ')
         temp_h = float(height)
         if temp_h < 50 or temp_h > 250:
             st.warning("Enter a Valid height",icon="❌")
        
+        weight = st.text_input('Weight (in Kg) ')
         temp_w = float(weight)
         if temp_w < 15 or temp_w > 600:
             verify = False
@@ -101,6 +113,14 @@ def main():
 
     # getting input for region where the person lives
     inp_region = st.radio('Region (In US)', ('Southeast', 'Southwest', 'Northwest', 'Northeast'))
+    if inp_region == 'Southeast':
+        region = 3.0
+    elif inp_region == 'Southwest':
+        region = 4.0
+    elif inp_region == 'Northwest':
+        region = 2.0
+    else:
+        region = 1.0
 
     # showing the results
     try:
@@ -110,7 +130,7 @@ def main():
             st.balloons()
             validated = check_data([age, bmi, children])
             if validated:
-                processed_data = convert_into_dataframe([age, gender, bmi, children, smoker])
+                processed_data = convert_into_dataframe([age, gender, bmi, children, smoker, region])
                 result = make_prediction(processed_data)
                 st.success(f"Predicted Cost: ${result:.0f}")
 
