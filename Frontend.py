@@ -39,6 +39,18 @@ def check_data(data):
 
 # entry point for our webpage
 def main():
+    # sidebar
+    with st.sidebar:
+        st.title("About:")
+        st.markdown(
+        "- Predicting the cost of the Health Insurance Policy that should be applied by a Person, based on their Characteristics.\n"
+        "- Early Health Insurance Amount Prediction can help in better contemplation of the amount needed, where a person can ensure that the amount, he/she is going to opt is justified.\n"
+        "- Also, it can provide an idea about gaining extra benefits from the Health Insurance."
+        )
+        st.title("Other Projects:")
+        st.markdown("📰 [Fake News Detector](https://fake-news-detector-k19.streamlit.app/)")
+
+        
     # setting the title
     st.title('US Health Insurance Predictor')
 
