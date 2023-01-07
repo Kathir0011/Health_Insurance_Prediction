@@ -52,7 +52,7 @@ def main():
 
         
     # setting the title
-    st.title('US Health Insurance Predictor')
+    st.title('US Health Insurance Cost Predictor')
 
     age = None
     try:
