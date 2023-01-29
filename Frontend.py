@@ -127,7 +127,7 @@ def main():
                 st.success(f"Predicted Cost: ${result:.0f}")
 
             else:
-                st.error('Invalid Input. Kindly Reload the Webpage and try again!!!', icon="⚠️")
+                st.error('Invalid Input. Try again!!!', icon="⚠️")
 
         st.info(
                 "Premiums are determined by Health Insurance Companies "
