@@ -124,7 +124,7 @@ def main():
             if validated:
                 processed_data = convert_into_dataframe([age, gender, bmi, children, smoker])
                 result = make_prediction(processed_data)
-                min_res = round((result - 2500), -3) if result > 3000 else result
+                min_res = round((result - 2500), -3) if result > 3000 else round(result, -3)
                 max_res = round((result + 2500), -3) 
                 st.success(f"Predicted Range: \${min_res:.0f} to \${max_res:.0f}")
 
