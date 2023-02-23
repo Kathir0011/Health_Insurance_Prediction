@@ -70,7 +70,7 @@ def main():
             st.warning("Enter a Valid Age",icon="❌")
         
     except:
-        pass
+        st.warning("Enter a Valid Age",icon="❌")
 
     # getting gender from the user
     inp_gender = st.radio("Gender", ('Male', 'Female'))
@@ -90,7 +90,6 @@ def main():
         st.info("Mininum Weight: 15Kg",icon="ℹ️")
         temp_h = float(height)
         
-
         if temp_h < 50 or temp_h > 250:
             bool_height_weight = False
             st.warning("Enter a Valid height",icon="❌")
@@ -109,16 +108,17 @@ def main():
             st.warning(f"BMI is too High.   BMI: {round(temp_b, 0)}",icon="❌")
         
     except:
-        pass
+        if height != "" and weight != "":
+            st.warning("Enter a Valid Height and Weight",icon="❌")
 
     # getting number of children that the person have
     children = None
     try:
-        children = float(st.text_input('Number Of Children'))
+        children = float(st.text_input('Number Of Children')+".0")
         if children < 0 or children > 15:
             st.warning("Enter a Valid Number of Children",icon="❌")
     except:
-        pass
+        st.warning("Enter a Valid Number of Children",icon="❌")
 
     # getting input whether the person is a smoker or not
     inp_smoker = st.radio('Are you a Smoker ? ', ('Yes', 'No'))
@@ -157,7 +157,7 @@ def main():
                 "of yearly health insurance premiums on the basis of person's "
                 "characteristics.", icon="ℹ️")
     except:
-        pass
+        st.error('Invalid Input. Try again!!!', icon="⚠️")
 
 
 if __name__ == '__main__':
