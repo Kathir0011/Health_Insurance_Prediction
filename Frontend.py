@@ -66,7 +66,7 @@ def main():
         age = float(st.text_input('Age')+".0")
         st.info("Acceptable Age: 18 - 150",icon="ℹ️")
         if age < 0 or age > 150:
-            st.warning("Enter a Valid Age",icon="❌")
+            raise Exception
         
     except:
         st.warning("Enter a Valid Age",icon="❌")
@@ -87,24 +87,25 @@ def main():
         weight = st.text_input('Weight (in Kg) ')
         st.info("Acceptable BMI: 13.0 - 200.0",icon="ℹ️")
         temp_h = float(height)
-        
+        temp_w = float(weight)
         if temp_h < 50 or temp_h > 250:
             bool_height_weight = False
             st.warning("Enter a Valid height",icon="❌")
        
-        temp_w = float(weight)
+        
         if temp_w < 15 or temp_w > 600:
             bool_height_weight = False
             verify = False
             st.warning("Enter a Valid weight",icon="❌")
-      
-        bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
-        st.info(f"Your BMI: {bmi:.2f}",icon="ℹ️")
-        temp_b = bmi
-        if bmi < 13 and verify:
-            st.warning(f"BMI is too Low.",icon="❌")
-        elif bmi > 200 and verify:
-            st.warning(f"BMI is too High.",icon="❌")
+
+        elif bool_height_weight:
+            bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
+            st.info(f"Your BMI: {bmi:.2f}",icon="ℹ️")
+            temp_b = bmi
+            if bmi < 13 and verify:
+                st.warning(f"BMI is too Low.",icon="❌")
+            elif bmi > 200 and verify:
+                st.warning(f"BMI is too High.",icon="❌")
         
     except:
         if height != "" and weight != "":
@@ -115,7 +116,7 @@ def main():
     try:
         children = float(st.text_input('Number Of Children')+".0")
         if children < 0 or children > 15:
-            st.warning("Enter a Valid Number of Children",icon="❌")
+            raise Exception
     except:
         st.warning("Enter a Valid Number of Children",icon="❌")
 
@@ -132,7 +133,10 @@ def main():
     # showing the results
     try:
         result = ""
-        if st.button('submit'):          
+        
+        if st.button('submit'):   
+            if children < 0 or children > 15:
+                raise Exception       
             validated = check_data([age, bmi, children])
             if validated and bool_height_weight:
                 # small animation until the webpage is loaded
@@ -145,7 +149,7 @@ def main():
                 st.success(f"Predicted Range: \${min_res:.0f} to \${max_res:.0f}")
 
             else:
-                st.error('Invalid Input. Try again!!!', icon="⚠️")
+                raise Exception
 
         st.info(
                 "Premiums are determined by Health Insurance Companies "
