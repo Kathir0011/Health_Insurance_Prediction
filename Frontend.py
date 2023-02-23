@@ -37,6 +37,9 @@ def check_data(data):
             return False
         elif i <= check_1:
             return False
+    
+    if data[0] > 18:
+        return False
     # all data are in valid format
     return True
 
@@ -62,8 +65,10 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
+        st.info("Minimum Age: 18 or above",icon="ℹ️")
         if age < 0 or age > 150:
             st.warning("Enter a Valid Age",icon="❌")
+        
     except:
         pass
 
@@ -79,9 +84,13 @@ def main():
     bool_height_weight = True
     try:
         verify = True
-        height = st.text_input('Height (in CM) ')
+        height = st.text_input('Height (in Cm) ')
+        st.info("Minimum Height: 100cm",icon="ℹ️")
         weight = st.text_input('Weight (in Kg) ')
+        st.info("Mininum Weight: 15Kg",icon="ℹ️")
         temp_h = float(height)
+        
+
         if temp_h < 50 or temp_h > 250:
             bool_height_weight = False
             st.warning("Enter a Valid height",icon="❌")
