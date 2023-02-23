@@ -26,12 +26,16 @@ def convert_into_dataframe(data):
 # check the formats of the input data
 def check_data(data):
     # checking age, bmi, children
-    if data[0] == 0.0:
+
+    check_1 = 0.0
+    if data[2] < 0.0 or type(data[2]) != type(check_1):
         return False
-    for i in data:
-        check_1 = 0.0
+
+    for i in data[:2]:
         if type(i) != type(check_1):
             # invalid data format
+            return False
+        elif i <= check_1:
             return False
     # all data are in valid format
     return True
@@ -72,16 +76,19 @@ def main():
 
     # calculating the BMI with height and weight
     bmi = None
+    bool_height_weight = True
     try:
         verify = True
         height = st.text_input('Height (in CM) ')
         weight = st.text_input('Weight (in Kg) ')
         temp_h = float(height)
         if temp_h < 50 or temp_h > 250:
+            bool_height_weight = False
             st.warning("Enter a Valid height",icon="❌")
        
         temp_w = float(weight)
         if temp_w < 15 or temp_w > 600:
+            bool_height_weight = False
             verify = False
             st.warning("Enter a Valid weight",icon="❌")
       
@@ -117,11 +124,12 @@ def main():
     # showing the results
     try:
         result = ""
-        if st.button('submit'):
-            # small animation until the webpage is loaded
-            st.balloons()
+        if st.button('submit'):          
             validated = check_data([age, bmi, children])
-            if validated:
+            if validated and bool_height_weight:
+                # small animation until the webpage is loaded
+                st.balloons()
+                
                 processed_data = convert_into_dataframe([age, gender, bmi, children, smoker])
                 result = make_prediction(processed_data)
                 min_res = round((result - 2500), -3) if result > 3000 else round(result, -3)
