@@ -64,7 +64,7 @@ def main():
     try:
         # getting age from the user
         age = float(st.text_input('Age')+".0")
-        st.info("Minimum Age: 18 or above",icon="ℹ️")
+        st.info("Acceptable Age: 18 - 150",icon="ℹ️")
         if age < 0 or age > 150:
             st.warning("Enter a Valid Age",icon="❌")
         
@@ -85,7 +85,7 @@ def main():
         verify = True
         height = st.text_input('Height (in Cm) ')
         weight = st.text_input('Weight (in Kg) ')
-        st.info("Acceptable BMI Range: 13.0 - 200.0",icon="ℹ️")
+        st.info("Acceptable BMI: 13.0 - 200.0",icon="ℹ️")
         temp_h = float(height)
         
         if temp_h < 50 or temp_h > 250:
