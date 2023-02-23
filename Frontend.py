@@ -60,16 +60,18 @@ def main():
     # setting the title
     st.title('US Health Insurance Cost Predictor')
 
-    age = None
     try:
         # getting age from the user
-        age = float(st.text_input('Age')+".0")
+        age = st.text_input('Age')
         st.info("Acceptable Age: 18 - 150",icon="ℹ️")
-        if age < 0 or age > 150:
+        temp_age = float(age) 
+        age = temp_age
+        if temp_age < 18 or temp_age > 150:
             raise Exception
         
     except:
-        st.warning("Enter a Valid Age",icon="❌")
+        if age != "":
+            st.warning("Enter a Valid Age",icon="❌")
 
     # getting gender from the user
     inp_gender = st.radio("Gender", ('Male', 'Female'))
