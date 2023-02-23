@@ -26,20 +26,19 @@ def convert_into_dataframe(data):
 # check the formats of the input data
 def check_data(data):
     # checking age, bmi, children
-
     check_1 = 0.0
-    if data[2] < 0.0 or type(data[2]) != type(check_1):
-        return False
-
-    for i in data[:2]:
+    for i in data:
         if type(i) != type(check_1):
             # invalid data format
             return False
-        elif i <= check_1:
-            return False
-    
-    if data[0] > 18:
+
+    if data[2] < 0 or data[1] < 0 or data[0] < 0:
         return False
+    elif data[1] > 200 or data[1] < 13:
+        return False
+    elif data[0] < 18:
+        return False
+
     # all data are in valid format
     return True
 
@@ -85,9 +84,8 @@ def main():
     try:
         verify = True
         height = st.text_input('Height (in Cm) ')
-        st.info("Minimum Height: 100cm",icon="ℹ️")
         weight = st.text_input('Weight (in Kg) ')
-        st.info("Mininum Weight: 15Kg",icon="ℹ️")
+        st.info("Acceptable BMI Range: 13.0 - 200.0",icon="ℹ️")
         temp_h = float(height)
         
         if temp_h < 50 or temp_h > 250:
@@ -101,11 +99,12 @@ def main():
             st.warning("Enter a Valid weight",icon="❌")
       
         bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
+        st.info(f"Your BMI: {bmi:.2f}",icon="ℹ️")
         temp_b = bmi
         if bmi < 13 and verify:
-            st.warning(f"BMI is too Low.   BMI: {round(temp_b, 0)}",icon="❌")
+            st.warning(f"BMI is too Low.",icon="❌")
         elif bmi > 200 and verify:
-            st.warning(f"BMI is too High.   BMI: {round(temp_b, 0)}",icon="❌")
+            st.warning(f"BMI is too High.",icon="❌")
         
     except:
         if height != "" and weight != "":
@@ -158,6 +157,7 @@ def main():
                 "characteristics.", icon="ℹ️")
     except:
         st.error('Invalid Input. Try again!!!', icon="⚠️")
+        
 
 
 if __name__ == '__main__':
