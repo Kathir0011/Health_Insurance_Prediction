@@ -1,5 +1,5 @@
-# Health Insurance Prediction
-The dataset used for this project is downloaded from [Kaggle](https://www.kaggle.com/datasets/teertha/ushealthinsurancedataset)
+# ```Health Insurance Prediction```
+The dataset used for this project is downloaded from [Kaggle](https://www.kaggle.com/datasets/teertha/ushealthinsurancedataset).
 
 The dataset used to train our model is based on Insurance Premium Charges in US.      
 
