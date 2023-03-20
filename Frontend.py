@@ -63,10 +63,10 @@ def main():
     try:
         # getting age from the user
         age = st.text_input('Age')
-        st.info("Acceptable Age: 18 - 150",icon="ℹ️")
+        st.info("Acceptable Age: 18 - 64",icon="ℹ️")
         temp_age = float(age) 
         age = temp_age
-        if temp_age < 18 or temp_age > 150:
+        if temp_age < 18 or temp_age > 64:
             raise Exception
         
     except:
@@ -104,9 +104,9 @@ def main():
             bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
             st.info(f"Your BMI: {bmi:.2f}",icon="ℹ️")
             temp_b = bmi
-            if bmi < 13 and verify:
+            if bmi < 14 and verify:
                 st.warning(f"BMI is too Low.",icon="❌")
-            elif bmi > 200 and verify:
+            elif bmi > 54 and verify:
                 st.warning(f"BMI is too High.",icon="❌")
         
     except:
