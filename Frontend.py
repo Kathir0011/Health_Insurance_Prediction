@@ -87,7 +87,7 @@ def main():
         verify = True
         height = st.text_input('Height (in Cm) ')
         weight = st.text_input('Weight (in Kg) ')
-        st.info("Acceptable BMI: 13.0 - 54.0",icon="ℹ️")
+        st.info("Acceptable BMI: 15.0 - 54.0",icon="ℹ️")
         temp_h = float(height)
         temp_w = float(weight)
         if temp_h < 50 or temp_h > 250:
@@ -104,7 +104,7 @@ def main():
             bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
             st.info(f"Your BMI: {bmi:.2f}",icon="ℹ️")
             temp_b = bmi
-            if bmi < 14 and verify:
+            if bmi < 15 and verify:
                 st.warning(f"BMI is too Low.",icon="❌")
             elif bmi > 54 and verify:
                 st.warning(f"BMI is too High.",icon="❌")
