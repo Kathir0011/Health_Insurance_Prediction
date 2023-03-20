@@ -87,7 +87,7 @@ def main():
         verify = True
         height = st.text_input('Height (in Cm) ')
         weight = st.text_input('Weight (in Kg) ')
-        st.info("Acceptable BMI: 13.0 - 200.0",icon="ℹ️")
+        st.info("Acceptable BMI: 13.0 - 54.0",icon="ℹ️")
         temp_h = float(height)
         temp_w = float(weight)
         if temp_h < 50 or temp_h > 250:
