@@ -32,11 +32,11 @@ def check_data(data):
             # invalid data format
             return False
 
-    if data[2] < 0 or data[1] < 0 or data[0] < 0:
+    if data[2] < 0 or data[2] > 5:
         return False
-    elif data[1] > 200 or data[1] < 13:
+    elif data[1] > 54 or data[1] < 15:
         return False
-    elif data[0] < 18:
+    elif data[0] < 18 or data[0] > 64:
         return False
 
     # all data are in valid format
@@ -63,7 +63,6 @@ def main():
     try:
         # getting age from the user
         age = st.text_input('Age')
-        st.info("Acceptable Age: 18 - 64",icon="ℹ️")
         temp_age = float(age) 
         age = temp_age
         if temp_age < 18 or temp_age > 64:
@@ -71,7 +70,7 @@ def main():
         
     except:
         if age != "":
-            st.warning("Enter a Valid Age",icon="❌")
+            st.warning("Acceptable Age: 18 - 64",icon="❌")
 
     # getting gender from the user
     inp_gender = st.radio("Gender", ('Male', 'Female'))
@@ -84,10 +83,8 @@ def main():
     bmi = None
     bool_height_weight = True
     try:
-        verify = True
         height = st.text_input('Height (in Cm) ')
         weight = st.text_input('Weight (in Kg) ')
-        st.info("Acceptable BMI: 15.0 - 54.0",icon="ℹ️")
         temp_h = float(height)
         temp_w = float(weight)
         if temp_h < 50 or temp_h > 250:
@@ -97,17 +94,17 @@ def main():
         
         if temp_w < 15 or temp_w > 600:
             bool_height_weight = False
-            verify = False
             st.warning("Enter a Valid weight",icon="❌")
 
         elif bool_height_weight:
             bmi = float(float(float(weight) / (float(height) * float(height)))*10000)
-            st.info(f"Your BMI: {bmi:.2f}",icon="ℹ️")
+            if bmi > 15 and bmi < 54:
+                st.info(f"Acceptable BMI: 15.0 - 54.0\n\nYour BMI: {bmi:.2f}",icon="ℹ️")
             temp_b = bmi
-            if bmi < 15 and verify:
-                st.warning(f"BMI is too Low.",icon="❌")
-            elif bmi > 54 and verify:
-                st.warning(f"BMI is too High.",icon="❌")
+            if bmi < 15:
+                st.warning(f"Acceptable BMI: 15.0 - 54.0\n\nYour BMI: {bmi:.2f}",icon="❌")
+            elif bmi > 54:
+                st.warning(f"Acceptable BMI: 15.0 - 54.0\n\nYour BMI: {bmi:.2f}",icon="❌")
         
     except:
         if height != "" and weight != "":
@@ -117,10 +114,10 @@ def main():
     children = None
     try:
         children = float(st.text_input('Number Of Children')+".0")
-        if children < 0 or children > 15:
+        if children < 0 or children > 5:
             raise Exception
     except:
-        st.warning("Enter a Valid Number of Children",icon="❌")
+        st.warning("Acceptable Range: 0 - 5",icon="❌")
 
     # getting input whether the person is a smoker or not
     inp_smoker = st.radio('Are you a Smoker ? ', ('Yes', 'No'))
@@ -137,8 +134,8 @@ def main():
         result = ""
         
         if st.button('submit'):   
-            if children < 0 or children > 15:
-                raise Exception       
+            # if children < 0 or children > 5:
+            #     raise Exception       
             validated = check_data([age, bmi, children])
             if validated and bool_height_weight:
                 # small animation until the webpage is loaded
