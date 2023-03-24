@@ -54,7 +54,8 @@ def main():
         "- Also, it can provide an idea about gaining extra benefits from the Health Insurance."
         )
         st.title("Other Projects:")
-        st.markdown("📰 [Fake News Detector](https://fake-news-detector-k19.streamlit.app/)")
+        st.markdown("📰 [Fake News Detector](https://fake-news-detector-k19.streamlit.app/)\n\n"\
+                    "🪶 [Birds Classifier](https://huggingface.co/spaces/Kathir0011/Birds_Classification)")
 
         
     # setting the title
