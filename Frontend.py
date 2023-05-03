@@ -55,7 +55,8 @@ def main():
         )
         st.title("Other Projects:")
         st.markdown("📰 [Fake News Detector](https://fake-news-detector-k19.streamlit.app/)\n\n"\
-                    "🪶 [Birds Classifier](https://huggingface.co/spaces/Kathir0011/Birds_Classification)")
+                    "🪶 [Birds Classifier](https://huggingface.co/spaces/Kathir0011/Birds_Classification)\n\n"\
+                    "🧑‍💻 [YouTube Video Assistant](https://huggingface.co/spaces/Kathir0011/YouTube_Video_Assistant)")
 
         
     # setting the title
